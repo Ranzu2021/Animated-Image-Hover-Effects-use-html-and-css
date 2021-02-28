@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #010615;
+}
+.container{
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container .box {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    margin: 40px;
+}
+.container .box .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    /* after */
+    z-index: 2;
+    /* porer ta than ata */
+}
+.container .box:hover .imgBx {
+    transform: translate(-35px, -35px);
+}
+.container .box .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container .box .contentBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+    /* porer ta than ata */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 15px;
+}
+.container .box:hover .contentBx {
+    transform: translate(35px, 35px);
+}
+.container .box .contentBx h3 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.container .box .contentBx h3 span {
+    color: #111;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+/* All adesign than ata */
+.imgBx::before,
+.contentBx::after {
+    content: '';
+    position: absolute;
+    width: 302px;
+    height: 302px;
+    background: linear-gradient(rgb(6, 240, 64),rgb(199, 57, 199));
+    transition: 0.5s;
+}
+.imgBx::before {
+    top: -2px;
+    left: -2px;
+    z-index: -9999;
+}
+.contentBx::after {
+    bottom: -2px;
+    right: -2px;
+    z-index: -9999;
+}
+/* All adesign than ata */
+
+
+@media (max-width: 768px){
+    .container .box:hover .contentBx {
+        transform: translate(0, 35px);
+    }
+    .container .box:hover .imgBx {
+        transform: translate(0, -35px);
+    }
+}
